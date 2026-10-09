@@ -7,8 +7,11 @@ const MAX_FILE_SIZE = 50 * 1024 * 1024;
 
 // Known BMD file signatures (magic numbers)
 const BMD_SIGNATURES = [
-  // Standard BMD header
-  new Uint8Array([0x42, 0x4D, 0x44, 0x0C]), // "BMD\x0C"
+  // Standard BMD versions
+  new Uint8Array([0x42, 0x4D, 0x44, 0x0A]), // "BMD\x0A" (version 10)
+  new Uint8Array([0x42, 0x4D, 0x44, 0x0B]), // "BMD\x0B" (version 11)
+  new Uint8Array([0x42, 0x4D, 0x44, 0x0C]), // "BMD\x0C" (version 12, encrypted)
+  new Uint8Array([0x42, 0x4D, 0x44, 0x0F]), // "BMD\x0F" (version 15, LEA encrypted)
   // Encrypted BMD (LEA-256)
   new Uint8Array([0x0C, 0x01, 0x4D, 0x42]), // "\x0C\x01MB" (little endian)
 ];
